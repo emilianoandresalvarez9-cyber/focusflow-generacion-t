@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FocusFlow — Gestor de Tareas y Estudio</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1>FocusFlow</h1>
+      <p>Organizador de tareas y bloques de estudio (25 min) · Generación T Stage 2</p>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <section id="summary-grid" class="summary-grid" aria-label="Resumen de estudio"></section>
+
+    <div class="columns">
+      <section class="panel">
+        <h2 id="form-title">Nueva tarea de estudio</h2>
+        <form id="task-form" class="task-form" novalidate>
+          <label>
+            Título *
+            <input id="titulo" type="text" maxlength="100" required placeholder="Ej: Terminar entrega final" />
+          </label>
+          <label>
+            Descripción
+            <textarea id="descripcion" rows="3" maxlength="500" placeholder="Notas o consigna..."></textarea>
+          </label>
+          <div class="row-2">
+            <label>
+              Categoría *
+              <select id="categoria">
+                <option value="tp">Trabajo Práctico</option>
+                <option value="clase">Clase</option>
+                <option value="proyecto">Proyecto</option>
+                <option value="lectura">Lectura</option>
+              </select>
+            </label>
+            <label>
+              Bloques (25 min c/u, 1–20) *
+              <input id="bloquesEstimados" type="number" min="1" max="20" value="2" required />
+            </label>
+          </div>
+          <div class="row-2">
+            <label>
+              Fecha límite (opcional)
+              <input id="fechaLimite" type="date" />
+            </label>
+            <label class="checkbox-label">
+              <input id="favorito" type="checkbox" />
+              Destacar como favorita
+            </label>
+          </div>
+          <p id="form-error" class="form-error" role="alert"></p>
+          <div class="form-buttons">
+            <button id="submit-btn" type="submit" class="btn btn-primary">Guardar tarea</button>
+            <button id="cancel-edit-btn" type="button" class="btn btn-secondary" hidden>Cancelar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="filters">
+          <input id="filter-search" type="search" placeholder="Buscar por título o descripción..." />
+          <select id="filter-category">
+            <option value="">Todas las categorías</option>
+            <option value="tp">TP</option>
+            <option value="clase">Clase</option>
+            <option value="proyecto">Proyecto</option>
+            <option value="lectura">Lectura</option>
+          </select>
+          <select id="filter-status">
+            <option value="">Todos los estados</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="en_progreso">En progreso</option>
+            <option value="completada">Completada</option>
+          </select>
+          <label class="checkbox-label">
+            <input id="filter-fav" type="checkbox" />
+            Solo favoritas
+          </label>
+        </div>
+
+        <div id="task-list-container" class="task-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
