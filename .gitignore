@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+.env
+backend/.env
+frontend/.env
+*.sqlite
+*.sqlite-journal
+*.db
+*.log
+.DS_Store
+Thumbs.db

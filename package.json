@@ -1,0 +1,16 @@
+{
+  "name": "focusflow-generacion-t",
+  "version": "1.0.0",
+  "description": "FocusFlow — Proyecto Final Integrador Stage 2 (Generación T) — Aplicación Full-Stack AI-First de gestión de tareas y sesiones de estudio.",
+  "type": "module",
+  "author": "Emiliano Álvarez",
+  "scripts": {
+    "dev:backend": "node backend/src/server.mjs",
+    "dev:frontend": "node frontend/server.mjs",
+    "test": "node --test backend/tests/*.test.mjs",
+    "verify": "npm test"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
